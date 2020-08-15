@@ -30,6 +30,7 @@ class OwnersController < ApplicationController
   end
 
   patch '/owners/:id' do 
+    # removes ALL previous pets from owner
    if !params[:owner].keys.include?("pet_ids")
     params[:owner][:pet_ids] = []
     end
