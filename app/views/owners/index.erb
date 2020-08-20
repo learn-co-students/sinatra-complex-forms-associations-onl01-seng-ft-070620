@@ -1,1 +1,12 @@
-index.erb
+<h1>Registered Owners</h1>
+
+<% @owners.each do |owner| %>
+    <p><%= owner.name %>
+    <form action="/owners/<%= owner.id%>/edit" method="get">
+        <input type="submit" value="Edit">
+    </form>
+    <form action="/owners/<%= owner.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="delete">
+    </form></p>
+<% end %>

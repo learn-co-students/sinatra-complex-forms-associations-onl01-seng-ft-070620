@@ -1,1 +1,12 @@
-index.erb
+<h1>Registered Pets</h1>
+
+<% @pets.each do |pet| %> 
+    <p><%= pet.name %>
+    <form action="/pets/<%= pet.id %>/edit" method="get">
+        <input type="submit" value="Edit">
+    </form>
+    <form action="/pets/<%= pet.id %>" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="delete">
+    </form></p>
+<% end %>
